@@ -1,8 +1,11 @@
 import React from 'react';
 
 const UserCard = props => {
+  console.log("usercard props: ", props);
   return (
-    <div>Card Stuff</div>
+    <div className="user-card">
+      <h1>card stuff</h1>
+    </div>
   );
 };
 

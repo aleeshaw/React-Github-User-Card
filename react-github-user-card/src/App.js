@@ -5,7 +5,10 @@ import axios from 'axios';
 import UserCard from './components/UserCard.js'
 
 class App extends React.Component {
-  state = {};
+  state = {
+    user: {},
+    followers: []
+  }
 
   componentDidMount() {
     axios
@@ -13,10 +16,10 @@ class App extends React.Component {
      .then(res => 
       {
        console.log("results: ", res)
-       this.setState(
-       res.data
-      );
-       console.log(this.state);
+       this.setState({
+        user: res.data
+       });
+       console.log("User Name", this.state.user.name);
      })
      .catch(error => {
        console.log(error)
@@ -27,6 +30,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>GitHub User Card</h1>
+        <UserCard 
+          name={this.state.user.name}
+          img={this.state.user.avatar_url}
+          url={this.state.user.html_url}
+        />
       </div>
     );
     }

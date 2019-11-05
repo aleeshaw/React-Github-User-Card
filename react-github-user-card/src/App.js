@@ -7,8 +7,7 @@ import UserCard from './components/UserCard.js'
 class App extends React.Component {
   state = {
     user: {},
-    followList: [],
-    followData: []
+    followers: []
   }
 
   componentDidMount() {
@@ -16,7 +15,7 @@ class App extends React.Component {
      .get("https://api.github.com/users/aleeshaw")
      .then(res => 
       {
-       console.log("results: ", res)
+       console.log("user results: ", res)
        this.setState({
         user: res.data
        })
@@ -28,13 +27,10 @@ class App extends React.Component {
     axios
      .get("https://api.github.com/users/aleeshaw/followers")
      .then(res => {
-       console.log(res.data)
+       console.log("follower results:", res.data)
        this.setState({
-         followList: res.data.map(user=> {
-          return user.login
-        })
+         followers: res.data
        })
-       console.log('follow list', this.state.followList)
      })
      .catch(error => {
        console.log(error)
@@ -47,23 +43,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>GitHub User Card</h1>
-        <div className="usercards">
+        <div className="usercards center">
           <UserCard 
             user={this.state.user}
           />
-          {this.state.followList.map(follower => {
-            axios.get(`https://api.github.com/users/${follower}`)
-            .then(res => {
-              console.log(res.data)
-              
-            })
-            .catch(error => {
-              console.log(error)
-            })
-            return (
-              <div>test</div>
-            )
-          })}
+        </div>
+        <div className="followers">
+          <h2>{this.state.user.name}'s Followers:</h2>
         </div>
       </div>
     );

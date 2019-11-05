@@ -1,7 +1,6 @@
 import React from 'react';
 
 const UserCard = props => {
-  console.log("usercard props: ", props);
   return (
     <div className="user-card">
       <div className="img-name-bio">

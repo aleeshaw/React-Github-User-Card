@@ -35,21 +35,6 @@ class App extends React.Component {
         })
        })
        console.log('follow list', this.state.followList)
-
-      //  this.state.followList.map(follower => {
-      //   axios
-      //    .get(`https://api.github.com/users/${follower}`)
-      //    .then(res => {
-      //      //console.log("follow data", res.data)
-      //      this.setState({
-      //        followData: res.data
-      //      })
-      //      console.log('data test', this.state.followData)
-      //    })
-      //    .catch(error => {
-      //      console.log(error)
-      //    });
-      //})
      })
      .catch(error => {
        console.log(error)
@@ -64,13 +49,7 @@ class App extends React.Component {
         <h1>GitHub User Card</h1>
         <div className="usercards">
           <UserCard 
-            name={this.state.user.name}
-            img={this.state.user.avatar_url}
-            bio={this.state.user.bio}
-            url={this.state.user.html_url}
-            repos={this.state.user.public_repos}
-            following={this.state.user.following}
-            followers={this.state.user.followers}
+            user={this.state.user}
           />
           {this.state.followList.map(follower => {
             axios.get(`https://api.github.com/users/${follower}`)

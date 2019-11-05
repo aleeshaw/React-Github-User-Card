@@ -1,4 +1,5 @@
 import React from 'react'; 
+import '../styling/FollowCard.css';
 
 const FollowCard = props => {
   

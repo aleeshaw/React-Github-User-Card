@@ -49,21 +49,20 @@ class App extends React.Component {
             user={this.state.user}
           />
         </div>
-        <div className="followers">
-          <h2>{this.state.user.name}'s Followers:</h2>
-            {this.state.followers.map(follower => {
-              return (
-                
-                <div key={follower.id}>
-                  <FollowCard follower={follower}/>
-                </div>
-                
-              )
-            }
-              
-            )}
-        </div>
-      </div>
+        <section className="followers">
+          <div className="follower-container">
+            <h2>{this.state.user.name}'s Followers:</h2>
+              {this.state.followers.map(follower => {
+                return (
+                  <div key={follower.id}>
+                    <FollowCard follower={follower}/>
+                  </div>
+                  
+                )
+              })};
+          </div>
+        </section>
+      </div> /*App div*/
     );
     }
 }

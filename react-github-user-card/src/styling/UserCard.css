@@ -1,14 +1,18 @@
+
 .user-card {
   width: 40%;
   height: 400px;
-  border: 1px solid gray;
-  border-radius: 5px;
+  border-radius: 7px;
+  background-color: white;
+  filter: drop-shadow(0 0 0.75rem lightgray);
+  margin: 0 auto;
 }
 
 .img-name-bio {
   display: flex;
   border-bottom: 1px solid lightgray;
   padding: 20px;
+  justify-content: space-around;
 }
 
 .img-name-bio img {
@@ -31,9 +35,10 @@
 
 .stats {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-content: center;
   padding: 20px;
-  height: 45%;
+  height: 50%;
 }
 
 .stat {

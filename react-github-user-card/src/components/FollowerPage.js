@@ -1,11 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import './styling/App.css';
-import axios from 'axios';
-import UserCard from './components/UserCard.js';
-import FollowCard from './components/FollowCard.js';
 
-class App extends React.Component {
+class FollowerPage extends React.Component {
   state = {
     user: {},
     followers: []
@@ -13,7 +8,7 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-     .get("https://api.github.com/users/aleeshaw")
+     .get(`https://api.github.com/users/chrisgins`)
      .then(res => 
       {
        console.log("user results: ", res)
@@ -26,7 +21,7 @@ class App extends React.Component {
      });
 
     axios
-     .get("https://api.github.com/users/aleeshaw/followers")
+     .get("https://api.github.com/users/chrisgins/followers")
      .then(res => {
        console.log("follower results:", res.data)
        this.setState({
@@ -67,4 +62,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default FollowerPage;

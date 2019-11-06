@@ -1,4 +1,7 @@
 import React from 'react';
+import axios from 'axios';
+import UserCard from './UserCard.js';
+import FollowCard from './FollowCard.js';
 
 class FollowerPage extends React.Component {
   state = {

@@ -1,16 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
 import './styling/App.css';
 import axios from 'axios';
 import UserCard from './components/UserCard.js';
 import FollowCard from './components/FollowCard.js';
+import FollowerPage from './components/FollowerPage';
 
 class App extends React.Component {
   state = {
     user: {},
     followers: []
   }
-
+  
   componentDidMount() {
     axios
      .get("https://api.github.com/users/aleeshaw")

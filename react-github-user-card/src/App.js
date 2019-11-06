@@ -106,10 +106,9 @@ class App extends React.Component {
                 return (
                   <div key={follower.id}>
                     <FollowCard follower={follower}/>
-                  </div>
-                  
+                  </div>                
                 )
-              })};
+              })}
           </div>
         </section>
       </div> /*App div*/

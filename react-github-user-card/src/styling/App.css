@@ -1,10 +1,13 @@
 .App {
   text-align: center;
   padding-bottom: 5%;
+  --main-color: #FF9F1C;
 }
 
+
 .app-title {
-  color: orange;
+  color: var(--main-color);
+  font-size: 3rem;
 }
 
 .App-logo {
@@ -42,13 +45,24 @@ input {
   font-size: 1.5rem;
 }
 
+input:focus {
+  outline: transparent;
+}
+
 button {
   height: 2.25rem;
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
-  color: orange;
+  color: var(--main-color);
 }
+button:focus {
+  outline: transparent;
+}
+button:hover {
+  cursor: pointer;
+}
+
 
 .follow-container {
   display: flex;

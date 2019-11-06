@@ -3,6 +3,10 @@
   padding-bottom: 5%;
 }
 
+.app-title {
+  color: orange;
+}
+
 .App-logo {
   height: 40vmin;
 }
@@ -20,6 +24,30 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+form {
+  border: 1px solid black;
+  margin: 50px auto;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+input {
+  border: transparent;
+  height: 2rem;
+  width: 350px;
+  font-size: 1.5rem;
+}
+
+button {
+  height: 2.25rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: orange;
 }
 
 .follow-container {

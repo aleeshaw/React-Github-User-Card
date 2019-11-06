@@ -79,14 +79,21 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>GitHub User Card</h1>
-        Search for a user!
-        <input  
-          type="text"
-          value={this.state.userSearch}
-          onChange={this.handleChange}
-        />
-        <button onClick={this.handleGetUser}>Search!</button>
+        <h1 className="app-title">GitHub User Card</h1>
+        <form>
+          <input  
+            type="text"
+            placeholder="Search for a user!"
+            value={this.state.userSearch}
+            onChange={this.handleChange}
+          />
+          <button 
+            type="submit" 
+            onClick={this.handleGetUser}
+          >
+            <i class="fas fa-search" />
+          </button>
+        </form>
         <div className="usercards center">
           <UserCard 
             user={this.state.user}

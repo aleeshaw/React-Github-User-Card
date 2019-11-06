@@ -5,13 +5,12 @@ import '../styling/FollowCard.css';
 const FollowCard = props => {
   
   return (
-    <Link to="/followerpage"><div className="follow-card">
+    <div className="follow-card">
       <div>
         <img width="100" src={props.follower.avatar_url} />
       </div>
       <a href={props.follower.html_url}><h3>{props.follower.login}</h3></a>
     </div>
-    </Link>
   )
 };
 

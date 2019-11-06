@@ -4,12 +4,13 @@ import './styling/App.css';
 import axios from 'axios';
 import UserCard from './components/UserCard.js';
 import FollowCard from './components/FollowCard.js';
-import FollowerPage from './components/FollowerPage';
+import SearchForm from './components/SearchForm.js';
 
 class App extends React.Component {
   state = {
     user: {},
-    followers: []
+    followers: [],
+    userSearch: ""
   }
   
   componentDidMount() {
@@ -37,14 +38,55 @@ class App extends React.Component {
      .catch(error => {
        console.log(error)
      });
-     
-     
   }
 
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({
+      userSearch: event.target.value
+    });
+  };
+
+  handleGetUser = event => {
+    event.preventDefault();
+    console.log(this.state.userSearch);
+    axios
+     .get(`https://api.github.com/users/${this.state.userSearch}`)
+     .then(res => 
+      {
+       console.log("user results: ", res)
+       this.setState({
+        user: res.data
+       })
+     })
+     .catch(error => {
+       console.log(error)
+     });
+
+    axios
+     .get(`https://api.github.com/users/${this.state.userSearch}/followers`)
+     .then(res => {
+       console.log("follower results:", res.data)
+       this.setState({
+         followers: res.data
+       })
+     })
+     .catch(error => {
+       console.log(error)
+     });
+  };
+  //TODO: implement componentDidUpdate();
   render() {
     return (
       <div className="App">
         <h1>GitHub User Card</h1>
+        Search for a user!
+        <input  
+          type="text"
+          value={this.state.userSearch}
+          onChange={this.handleChange}
+        />
+        <button onClick={this.handleGetUser}>Search!</button>
         <div className="usercards center">
           <UserCard 
             user={this.state.user}

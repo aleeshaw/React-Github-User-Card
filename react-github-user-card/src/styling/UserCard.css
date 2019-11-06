@@ -1,7 +1,7 @@
 
 .user-card {
   width: 40%;
-  height: 400px;
+  
   border-radius: 7px;
   background-color: white;
   filter: drop-shadow(0 0 0.75rem lightgray);
@@ -32,6 +32,7 @@
 
 .name-bio h3 {
   margin-top: -10px;
+  text-align: left;
 }
 
 .stats {
